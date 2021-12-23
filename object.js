@@ -1,19 +1,14 @@
 let myLibrary = [];
 
-function Books(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read 
-
-}
-
-Books.prototype.read = function (){
-    if (this.read == 'Read'){
-        this.read = 'Not Read';
-    } else if (this.read == 'Not Read'){
-        this.read = 'Read';
+class Books {
+    
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read 
     }
+
 }
 
 function readUpdate(buttonsReads){
@@ -61,11 +56,6 @@ function updateLibrary (){
     }
 };
 
-
-
-
-
-
 function deleteButton(buttons){
     for (let i = 0; i < myLibrary.length; i++){
             buttons[i].addEventListener('click', ()=>{;
@@ -77,27 +67,19 @@ function deleteButton(buttons){
     };
 }
 
-
 //creates table
 const table = document.createElement('table');
 const body = document.querySelector('body');
 body.appendChild(table);
 //creates table header
 const tableSelect = document.querySelector('table');
-
 const tableRowTwo = document.createElement('tr');
 const tableHeaderSelect = document.querySelector('thead');
 const th = document.createElement('th');
-
-
 const tBody = document.createElement('tbody');
 tableSelect.appendChild(tBody);
-
-
 tBody.classList.add('row');
 tableRowTwo.classList.add('box');
-
-
 const tbodySelector = document.querySelector('tbody');
 tbodySelector.appendChild(tableRowTwo);
 const tableRowSelector = document.querySelectorAll('tr');
@@ -106,9 +88,7 @@ let row = '';
 let cell = '';
 
 const example = new Books('Lord of the Rings', 'The Man', '300', 'Read');
-const exampleTwo = new Books('Lord of the Rings', 'The Man', '200', 'Read');
 myLibrary.push(example);
-myLibrary.push(exampleTwo);
 updateLibrary ();
 
 const myForm = document.getElementById("myForm");
@@ -146,6 +126,7 @@ document.addEventListener("click",()=>{
     });
 
 let buttonsReads = document.querySelectorAll('.read')
+
 readUpdate(buttonsReads);
 
 
